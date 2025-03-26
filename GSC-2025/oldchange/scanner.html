@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter QR Code Scanner</title>
+    <link rel="stylesheet" href="/style/scanner.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <!-- Add this in the <head> section of your HTML -->
+    <audio id="sirenSound" preload="auto">
+    <source src="/alarm/alarm-siren-sound-effect-type-01-294194.mp3" type="audio/mpeg">
+    </audio>
+   
+</head>
+<body>
+    <div class="container">
+        <h1>Voter QR Code Scanner</h1>
+        <p class="description">Scan a voter QR code to verify eligibility.</p>
+        
+        <div id="scanner">
+            <video id="video" width="100%" height="100%" autoplay></video>
+            <div id="scanner-overlay">
+                <div id="scanner-line"></div>
+            </div>
+        </div>
+        
+        <button id="startButton" class="scan-button">Start Scanner</button>
+        
+        <div id="loader" class="loader"></div>
+        
+        <div id="result">
+            <div id="statusIndicator" class="status-indicator">
+                <i id="statusIcon"></i>
+            </div>
+            <p id="message"></p>
+            <div id="voterDetails" class="voter-details"></div>
+            <div id="countdown"></div>
+        </div>
+    </div>
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    
+    <!-- QR Code Scanner Library -->
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+    
+    <script>
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDLpqpT4DQAfoloD_S4nCDOq0bamjuVyBM",
+            authDomain: "voting-made-easy-55b34.firebaseapp.com",
+            projectId: "voting-made-easy-55b34",
+            storageBucket: "voting-made-easy-55b34.firebaseapp.com",
+            messagingSenderId: "88186548606",
+            appId: "1:88186548606:web:cdfa835053f1f0e64f032f",
+            measurementId: "G-491RJ3GNVB"
+        };
+        
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        
+        // Get a reference to the Firestore database
+        const db = firebase.firestore();
+        
+        // DOM elements
+        const video = document.getElementById('video');
+        const startButton = document.getElementById('startButton');
+        const result = document.getElementById('result');
+        const statusIndicator = document.getElementById('statusIndicator');
+        const statusIcon = document.getElementById('statusIcon');
+        const message = document.getElementById('message');
+        const voterDetails = document.getElementById('voterDetails');
+        const loader = document.getElementById('loader');
+        const countdown = document.getElementById('countdown');
+        
+        // Scanner variables
+        let scanning = false;
+        let canvasElement;
+        let canvas;
+        let scannerActive = false;
+        let countdownTimer;
+        let lastScannedCode = null;
+        let lastScanTime = 0;
+        
+        // Function to start the scanner
+        startButton.addEventListener('click', function() {
+            if (scannerActive) {
+                stopScanner();
+                startButton.textContent = 'Start Scanner';
+            } else {
+                startScanner();
+                startButton.textContent = 'Stop Scanner';
+            }
+        });
+        
+        function clearVoterDetails() {
+            voterDetails.innerHTML = '';
+        }
+
+        // Function to start the scanner
+        function startScanner() {
+            // Reset UI
+            result.style.display = 'none';
+            countdown.style.display = 'none';
+            countdown.textContent = '';
+            
+            // Clear voter details when starting a new scan
+            clearVoterDetails();
+            
+            // Reset last scanned code
+            lastScannedCode = null;
+            
+            // Clear any existing countdown
+            if (countdownTimer) {
+                clearInterval(countdownTimer);
+                countdownTimer = null;
+            }
+            
+            // Setup canvas once
+            if (!canvasElement) {
+                canvasElement = document.createElement('canvas');
+                canvas = canvasElement.getContext('2d');
+            }
+            
+            // Access the device camera
+            navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+                .then(function(stream) {
+                    video.srcObject = stream;
+                    video.setAttribute('playsinline', true); // Required for iOS
+                    video.play();
+                    scannerActive = true;
+                    requestAnimationFrame(tick);
+                })
+                .catch(function(error) {
+                    console.error('Error accessing camera:', error);
+                    showResult('blue', 'Error accessing camera. Please check your permissions.');
+                });
+        }
+        
+        // Function to stop the scanner
+        function stopScanner() {
+            if (video.srcObject) {
+                video.srcObject.getTracks().forEach(track => track.stop());
+            }
+            scannerActive = false;
+        }
+        
+        // Function to process frames from camera
+        function tick() {
+            if (!scannerActive) return;
+            
+            if (video.readyState === video.HAVE_ENOUGH_DATA) {
+                // Set canvas dimensions to match video
+                canvasElement.height = video.videoHeight;
+                canvasElement.width = video.videoWidth;
+                
+                // Draw video frame to canvas
+                canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+                
+                // Get image data for QR code processing
+                const imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
+                
+                // Process image data to find QR code
+                const code = jsQR(imageData.data, imageData.width, imageData.height, {
+                    inversionAttempts: "dontInvert",
+                });
+                
+                // Check if a QR code was found and it's not the same as the last one
+                const now = Date.now();
+                if (code && !scanning && (code.data !== lastScannedCode || now - lastScanTime > 5000)) {
+                    scanning = true;
+                    lastScannedCode = code.data;
+                    lastScanTime = now;
+                    
+                    // Process the QR code data
+                    processQRCode(code.data);
+                }
+            }
+            
+            // Continue scanning
+            requestAnimationFrame(tick);
+        }
+        
+        // Function to process QR code data
+        function processQRCode(data) {
+            try {
+                // First try to decrypt the data
+                const decryptedData = decryptData(data);
+                
+                if (!decryptedData) {
+                    clearVoterDetails(); // Clear voter details on invalid QR
+                    showResult('blue', 'Could not read QR code. Please try again.', 3); // 3 second timeout
+                    return;
+                }
+                
+                // Try to parse the decrypted QR code data as JSON
+                const voterData = JSON.parse(decryptedData);
+                
+                // Check if the required fields are present
+                if (!voterData.vid && !voterData.VId) {
+                    clearVoterDetails(); // Clear voter details on invalid QR
+                    showResult('blue', 'Invalid QR code format. Missing voter ID. Please try again.', 3); // 3 second timeout
+                    return;
+                }
+                
+                // Show loader during verification
+                loader.style.display = 'block';
+                
+                // Verify the voter data against Firestore
+                verifyVoter(voterData);
+                
+            } catch (error) {
+                console.error('Error processing QR code:', error);
+                clearVoterDetails(); // Clear voter details on error
+                showResult('blue', 'Could not read QR code. Please try again.', 3); // 3 second timeout
+                scanning = false;
+            }
+        }
+
+        // Add the decryption function from the generator to the scanner
+        function decryptData(encryptedData) {
+            try {
+                const encKey = "VoterSecureAppKey2025";
+                const decrypted = CryptoJS.AES.decrypt(encryptedData, encKey).toString(CryptoJS.enc.Utf8);
+                return decrypted;
+            } catch (error) {
+                console.error("Decryption error:", error);
+                return null;
+            }
+        }
+        
+        // Function to verify voter data against the database
+        function verifyVoter(voterData) {
+            // Normalize voter ID (could be 'vid' or 'VId' in QR code)
+            const voterID = voterData.vid || voterData.VId;
+            
+            // Check if this voter exists in the users collection first
+            db.collection('users')
+                .where('VId', '==', voterID)
+                .get()
+                .then((userSnapshot) => {
+                    if (userSnapshot.empty) {
+                        // No matching voter found in users collection
+                        loader.style.display = 'none';
+                        showResult('red', 'Voter ID not found in database. Access denied.'); // Default 10 second timeout
+                        // Don't set scanning to false here since showResult will handle it
+                        return;
+                    }
+                    
+                    const dbVoterData = userSnapshot.docs[0].data();
+                    
+                    // Double-check in user_voted collection
+                    db.collection('user_voted')
+                        .where('voterId', '==', voterID)
+                        .get()
+                        .then((votedSnapshot) => {
+                            loader.style.display = 'none';
+                            
+                            if (!votedSnapshot.empty) {
+                                // Voter has already voted according to the user_voted collection
+                                showResult('red', 'Voter has already cast a vote. Access denied.'); // Default 10 second timeout
+                                displayVoterInfo(voterData, dbVoterData);
+                                // Don't set scanning to false here since showResult will handle it
+                                return;
+                            }
+                            
+                            // Check if voter is eligible
+                            if (dbVoterData.eligibleToVote === false) {
+                                showResult('red', 'Voter is not eligible to vote. Access denied.'); // Default 10 second timeout
+                                displayVoterInfo(voterData, dbVoterData);
+                                // Don't set scanning to false here since showResult will handle it
+                                return;
+                            }
+                            
+                            // Check QR code expiration
+                            if (voterData.exp) {
+                                const expiration = new Date(voterData.exp);
+                                const now = new Date();
+                                
+                                if (now > expiration) {
+                                    showResult('red', 'QR code has expired. Please generate a new QR code.'); // Default 10 second timeout
+                                    displayVoterInfo(voterData, dbVoterData);
+                                    // Don't set scanning to false here since showResult will handle it
+                                    return;
+                                }
+                            }
+                            
+                            // Get normalized values for comparison (handle different field names and formats)
+                            const dbName = (dbVoterData.fullName || '').trim();
+                            const qrName = (voterData.name || voterData.fullName || '').trim();
+                            
+                            // Check voter information - more flexible matching (case insensitive)
+                            if (dbName.toLowerCase() !== qrName.toLowerCase()) {
+                                showResult('red', 'Voter name mismatch. Possible tampered QR code.'); // Default 10 second timeout
+                                // Don't set scanning to false here since showResult will handle it
+                                return;
+                            }
+                            
+                            // All checks passed, voter is verified and eligible
+                            showResult('green', 'Voter verified. Approved to vote.'); // Default 10 second timeout
+                            displayVoterInfo(voterData, dbVoterData);
+                            
+                            // Record the voter as having voted
+                            recordVote(voterID, dbName);
+                            
+                            // The countdown and restart is now handled in showResult
+                        })
+                        .catch((error) => {
+                            loader.style.display = 'none';
+                            console.error('Error checking voted status:', error);
+                            showResult('blue', 'Database error. Please try scanning again.', 3); // 3 second timeout
+                            // Don't set scanning to false here since showResult will handle it
+                        });
+                })
+                .catch((error) => {
+                    loader.style.display = 'none';
+                    console.error('Error verifying voter:', error);
+                    showResult('blue', 'Database error. Please try scanning again.', 3); // 3 second timeout
+                    // Don't set scanning to false here since showResult will handle it
+                });
+        }
+
+        // Function to display voter information - simplified to show only name, DOB, and VId
+        function displayVoterInfo(voterData, dbVoterData) {
+            voterDetails.innerHTML = `
+                <h3>Voter Information:</h3>
+                <p><strong>Name:</strong> ${dbVoterData.fullName || 'Not available'}</p>
+                <p><strong>Voter ID:</strong> ${dbVoterData.VId || 'Not available'}</p>
+                <p><strong>Date of Birth:</strong> ${dbVoterData.dob || 'Not available'}</p>
+            `;
+        }
+        
+        // Function to record a vote in the user_voted collection
+        function recordVote(voterID, voterName) {
+            db.collection('user_voted')
+                .add({
+                    voterId: voterID,
+                    voterName: voterName,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                })
+                .then(() => {
+                    // Also update the main users collection
+                    db.collection('users')
+                        .where('VId', '==', voterID)
+                        .get()
+                        .then((querySnapshot) => {
+                            if (!querySnapshot.empty) {
+                                const docRef = querySnapshot.docs[0].ref;
+                                docRef.update({
+                                    hasVoted: true,
+                                    voteTimestamp: firebase.firestore.FieldValue.serverTimestamp()
+                                });
+                            }
+                        });
+                })
+                .catch((error) => {
+                    console.error('Error recording vote:', error);
+                });
+        }
+        
+        // Function to show result with appropriate styling
+        // Added countdown duration parameter with default value of 10 seconds
+        function showResult(status, messageText, countdownDuration = 10) {
+            // Don't stop the scanner here, just pause it while showing results
+            // stopScanner(); - Remove this line
+            
+            // Instead just set scannerActive to false temporarily
+            scannerActive = false;
+            
+            // Keep the button text as "Stop Scanner" since we'll auto-restart
+            startButton.textContent = 'Stop Scanner';
+            
+            // Reset status classes
+            statusIndicator.classList.remove('green-light', 'red-light', 'blue-light');
+            result.classList.remove('result-green', 'result-red', 'result-blue');
+            
+            // Get the siren sound element
+            const sirenSound = document.getElementById('sirenSound');
+            
+            // Set appropriate status
+            switch (status) {
+                case 'green':
+                    statusIndicator.classList.add('green-light');
+                    result.classList.add('result-green');
+                    statusIcon.textContent = '✓';
+                    break;
+                case 'red':
+                    statusIndicator.classList.add('red-light');
+                    result.classList.add('result-red');
+                    statusIcon.textContent = '✗';
+                    // Play siren sound for denied voters
+                    if (sirenSound) {
+                        // Reset the sound to the beginning (in case it was played before)
+                        sirenSound.currentTime = 0;
+                        sirenSound.play().catch(e => console.error("Error playing sound:", e));
+                        
+                        // Stop the sound after 5 seconds or when the countdown ends
+                        setTimeout(() => {
+                            sirenSound.pause();
+                            sirenSound.currentTime = 0;
+                        }, 5000);
+                    }
+                    break;
+                case 'blue':
+                    statusIndicator.classList.add('blue-light');
+                    result.classList.add('result-blue');
+                    statusIcon.textContent = '!';
+                    // Clear voter details for blue status (error/info messages)
+                    clearVoterDetails();
+                    break;
+            }
+            
+            // Set message
+            message.textContent = messageText;
+            
+            // Show result
+            result.style.display = 'block';
+            loader.style.display = 'none';
+            
+            // Start the countdown with the specified duration
+            startAutoRefreshCountdown(countdownDuration);
+            
+            // We're not stopping the scanner completely, just setting scanning flag to false
+            scanning = false;
+        }
+
+        // Function to start auto-refresh countdown
+        // Modified to accept a custom duration parameter
+        function startAutoRefreshCountdown(duration = 10) {
+            // Clear any existing countdown
+            if (countdownTimer) {
+                clearInterval(countdownTimer);
+            }
+            
+            // Set countdown duration to the specified parameter
+            let timeLeft = duration;
+            
+            // Show countdown element
+            countdown.style.display = 'block';
+            countdown.textContent = `Scanner will refresh in ${timeLeft} seconds...`;
+            
+            // Start countdown timer
+            countdownTimer = setInterval(() => {
+                timeLeft--;
+                
+                if (timeLeft <= 0) {
+                    // Time's up - clear the interval and start scanner again
+                    clearInterval(countdownTimer);
+                    // Make sure the siren sound is stopped when countdown ends
+                    const sirenSound = document.getElementById('sirenSound');
+                    if (sirenSound) {
+                        sirenSound.pause();
+                        sirenSound.currentTime = 0;
+                    }
+                    
+                    // Reset scanning flag
+                    scanning = false;
+                    
+                    // Auto-restart scanner
+                    startScanner();
+                    startButton.textContent = 'Stop Scanner';
+                } else {
+                    // Update countdown text
+                    countdown.textContent = `Scanner will refresh in ${timeLeft} seconds...`;
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

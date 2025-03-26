@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter Information Form</title>
+    <link rel="stylesheet" href="/style/voter_login.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.0/build/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <style>
+        #qrDownloadContainer {
+            margin-top: 20px;
+            display: none;
+        }
+        #generatedQR {
+            max-width: 200px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Voter Login</h1>
+        
+        <div id="autoFillNotice" class="auto-fill-notice">
+            Your Voter ID has been automatically filled from your recent registration.
+        </div>
+        
+        <form id="userForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Enter your full name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="vid">VID (Voter ID):</label>
+                <input type="text" id="vid" placeholder="Enter your Voter ID" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+
+            <div class="password-toggle">
+                <input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()">
+                <label for="showPassword">Show Password</label>
+            </div>
+            <div class="button-group">
+                <button type="submit" class="submit-btn">Submit</button>
+                <a href="javascript:void(0)" class="back-link" id="backButton" onclick="window.history.back()">← Back to previous page</a>
+            </div>
+            
+            <div id="errorMessage" class="error-message"></div>
+            <div id="successMessage" class="success-message">Information verified successfully!</div>
+            <div id="loading" class="loading">Processing</div>
+        </form>
+
+        <div id="qrDownloadContainer">
+            <h2>Your Secure QR Code</h2>
+            <canvas id="generatedQR"></canvas>
+            <button id="downloadQRButton">Download QR Code</button>
+        </div>
+    </div>
+    
+    <script>
+        
+        // Function to toggle password visibility
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById("password");
+            const showPasswordCheckbox = document.getElementById("showPassword");
+            
+            if (showPasswordCheckbox.checked) {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        }
+
+        // Function to encrypt data securely
+        function encryptData(data) {
+            const encKey = "VoterSecureAppKey2025";
+            return CryptoJS.AES.encrypt(JSON.stringify(data), encKey).toString();
+        }
+
+        // Function to generate and display QR code
+        function generateQRCode(name, vid, dob) {
+            // Calculate QR code expiration (1 year from now)
+            const qrExpiration = new Date();
+            qrExpiration.setFullYear(qrExpiration.getFullYear() + 1);
+            
+            // Prepare secure voter data for QR code
+            const voterData = {
+                name: name || '',
+                dob: dob || '',
+                vid: vid,
+                exp: qrExpiration.toISOString()
+            };
+            
+            // Encrypt the voter data
+            const encryptedData = encryptData(voterData);
+            
+            // Generate QR Code
+            const qrCanvas = document.getElementById('generatedQR');
+            QRCode.toCanvas(qrCanvas, encryptedData, {
+                width: 200,
+                margin: 2,
+                color: {
+                    dark: '#000',
+                    light: '#fff'
+                }
+            });
+
+            // Show QR download container
+            document.getElementById('qrDownloadContainer').style.display = 'block';
+        }
+
+        // Function to download QR code as PDF
+        function downloadQRCodeAsPDF() {
+            if (!window.jspdf) {
+                alert('PDF library not loaded');
+                return;
+            }
+
+            let { jsPDF } = window.jspdf;
+            const doc = new jsPDF({
+                orientation: "portrait",
+                unit: "mm",
+                format: "a4"
+            });
+
+            // Get QR code data URL
+            const qrCanvas = document.getElementById('generatedQR');
+            const qrImage = qrCanvas.toDataURL('image/png');
+
+            // Add QR code to PDF
+            doc.addImage(qrImage, 'PNG', 75, 100, 60, 60);
+
+            // Add title and instructions
+            doc.setFontSize(16);
+            doc.text("Voter QR Code", 105, 80, { align: "center" });
+            
+            doc.setFontSize(10);
+            doc.text("Scan this QR code to verify your voter authentication", 105, 170, { align: "center" });
+            doc.text(`Generated on: ${new Date().toLocaleDateString()}`, 105, 180, { align: "center" });
+
+            // Save the PDF
+            doc.save('Voter_QR_Code.pdf');
+        }
+
+        // Firebase configuration and existing code remains the same as in the previous document
+        // Updated Firebase Configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyDLpqpT4DQAfoloD0S4nCDOq0bamjuVyBM",
+    authDomain: "voting-made-easy-55b34.firebaseapp.com",
+    projectId: "voting-made-easy-55b34",
+    storageBucket: "voting-made-easy-55b34.firebasestorage.app",
+    messagingSenderId: "88186548606",
+    appId: "1:88186548606:web:cdfa835053f1f0e64f032f",
+    measurementId: "G-491RJ3GNVB"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const auth = firebase.auth();
+
+document.addEventListener('DOMContentLoaded', function() {
+    const userForm = document.getElementById('userForm');
+    const nameInput = document.getElementById('name');
+    const dobInput = document.getElementById('dob');
+    const vidInput = document.getElementById('vid');
+    const passwordInput = document.getElementById('password');
+    const errorMessage = document.getElementById('errorMessage');
+    const successMessage = document.getElementById('successMessage');
+    const loadingIndicator = document.getElementById('loading');
+    const autoFillNotice = document.getElementById('autoFillNotice');
+    const downloadQRButton = document.getElementById('downloadQRButton');
+
+    // Secure password hashing function
+    function hashPassword(password) {
+        return CryptoJS.SHA256(password).toString();
+    }
+
+    // Handle VID autofill on page load
+    const registeredVId = localStorage.getItem('registeredVId');
+    if (registeredVId) {
+        vidInput.value = registeredVId;
+        autoFillNotice.style.display = 'block';
+
+        // Fetch user data based on VID
+        db.collection('users').where('VId', '==', registeredVId).get()
+            .then((querySnapshot) => {
+                if (!querySnapshot.empty) {
+                    const userData = querySnapshot.docs[0].data();
+                    
+                    if (userData.fullName) {
+                        nameInput.value = userData.fullName;
+                    }
+                    
+                    if (userData.dob) {
+                        const dobParts = userData.dob.split('/');
+                        if (dobParts.length === 3) {
+                            const formattedDob = `${dobParts[2]}-${dobParts[1]}-${dobParts[0]}`;
+                            dobInput.value = formattedDob;
+                        }
+                    }
+                }
+            })
+            .catch((error) => {
+                console.error("Error fetching user data: ", error);
+            });
+    }
+
+    // VID Input Blur Event
+    vidInput.addEventListener('blur', function() {
+        const vid = vidInput.value.trim();
+        if (vid) {
+            db.collection('users').where('VId', '==', vid).get()
+                .then((querySnapshot) => {
+                    if (!querySnapshot.empty) {
+                        const userData = querySnapshot.docs[0].data();
+                        
+                        if (userData.fullName) {
+                            nameInput.value = userData.fullName;
+                        }
+                        
+                        if (userData.dob) {
+                            const dobParts = userData.dob.split('/');
+                            if (dobParts.length === 3) {
+                                const formattedDob = `${dobParts[2]}-${dobParts[1]}-${dobParts[0]}`;
+                                dobInput.value = formattedDob;
+                            }
+                        }
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error checking user VId: ", error);
+                });
+        }
+    });
+
+    // Form Submission Handler
+    userForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Reset messages
+        errorMessage.style.display = 'none';
+        successMessage.style.display = 'none';
+        loadingIndicator.style.display = 'block';
+        
+        // Get form values
+        const name = nameInput.value.trim();
+        const dob = dobInput.value;
+        const vid = vidInput.value.trim();
+        const password = passwordInput.value;
+        
+        // Basic validation
+        if (!name || !dob || !vid || !password) {
+            showError('Please fill in all fields');
+            return;
+        }
+        
+        // Hash the password for comparison
+        const hashedPassword = hashPassword(password);
+        
+        // Check user in Firestore
+        db.collection('users')
+            .where('VId', '==', vid)
+            .get()
+            .then((querySnapshot) => {
+                if (querySnapshot.empty) {
+                    showError('No account found with this Voter ID. Please register first.');
+                    return;
+                }
+                
+                // Get user data from the first matching document
+                const userData = querySnapshot.docs[0].data();
+                
+                // Compare hashed passwords
+                if (userData.hashedPassword && userData.hashedPassword === hashedPassword) {
+                    // User authenticated successfully
+                    loadingIndicator.style.display = 'none';
+                    successMessage.style.display = 'block';
+                    
+                    // Generate and show QR code for authenticated user
+                    generateQRCode(name, vid, dob);
+                    
+                    // Store minimal user info in session storage
+                    const sessionData = {
+                        name: name,
+                        vid: vid,
+                        timestamp: new Date().toISOString()
+                    };
+                    sessionStorage.setItem('userData', JSON.stringify(sessionData));
+                } else {
+                    showError('Incorrect password. Please try again.');
+                }
+            })
+            .catch((error) => {
+                showError('Authentication error: ' + error.message);
+                console.error("Error during authentication:", error);
+            });
+    });
+
+    // Error display function
+    function showError(message) {
+        loadingIndicator.style.display = 'none';
+        errorMessage.textContent = message;
+        errorMessage.style.display = 'block';
+        document.getElementById('qrDownloadContainer').style.display = 'none';
+    }
+});   
+        // Existing code for VID input blur event listener remains the same
+        vidInput.addEventListener('blur', function() {
+            const vid = vidInput.value.trim();
+            if (vid) {
+                // Check in 'users' collection by VId (for auto-filling name and DOB)
+                db.collection('users').where('VId', '==', vid).get()
+                    .then((querySnapshot) => {
+                        if (!querySnapshot.empty) {
+                            const userData = querySnapshot.docs[0].data();
+                            
+                            // Auto-fill name and date of birth
+                            if (userData.fullName) {
+                                nameInput.value = userData.fullName;
+                            }
+                            
+                            if (userData.dob) {
+                                // Convert from dd/mm/yyyy to yyyy-mm-dd for the date input
+                                const dobParts = userData.dob.split('/');
+                                if (dobParts.length === 3) {
+                                    const formattedDob = `${dobParts[2]}-${dobParts[1]}-${dobParts[0]}`;
+                                    dobInput.value = formattedDob;
+                                }
+                            }
+                        }
+                    })
+                    .catch((error) => {
+                        console.error("Error checking user VId: ", error);
+                    });
+            }
+        });
+    </script>
+    
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+</body>
+</html>

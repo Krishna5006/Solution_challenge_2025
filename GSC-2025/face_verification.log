@@ -1,0 +1,482 @@
+2025-03-23 01:08:01,805 - face_verification - INFO - Running periodic cleanup
+2025-03-23 01:08:01,816 - websockets.server - INFO - server listening on 127.0.0.1:8888
+2025-03-23 01:08:01,816 - websockets.server - INFO - server listening on [::1]:8888
+2025-03-23 01:08:01,816 - face_verification - INFO - WebSocket server started on ws://localhost:8888
+2025-03-23 01:08:52,153 - websockets.server - INFO - connection open
+2025-03-23 01:08:52,153 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:08:52,742 - websockets.server - INFO - connection open
+2025-03-23 01:08:52,743 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:08:53,252 - websockets.server - INFO - connection open
+2025-03-23 01:08:53,252 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:08:53,768 - websockets.server - INFO - connection open
+2025-03-23 01:08:53,768 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:08:54,285 - websockets.server - INFO - connection open
+2025-03-23 01:08:54,285 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:08:54,802 - websockets.server - INFO - connection open
+2025-03-23 01:08:54,802 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:08:55,324 - websockets.server - INFO - connection open
+2025-03-23 01:08:55,324 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:08:55,834 - websockets.server - INFO - connection open
+2025-03-23 01:08:55,835 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:08:56,350 - websockets.server - INFO - connection open
+2025-03-23 01:08:56,351 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:08:56,882 - websockets.server - INFO - connection open
+2025-03-23 01:08:56,883 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:08:57,380 - websockets.server - INFO - connection open
+2025-03-23 01:08:57,381 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:08:57,913 - websockets.server - INFO - connection open
+2025-03-23 01:08:57,913 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:08:58,510 - websockets.server - INFO - connection open
+2025-03-23 01:08:58,511 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:08:59,026 - websockets.server - INFO - connection open
+2025-03-23 01:08:59,026 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:08:59,529 - websockets.server - INFO - connection open
+2025-03-23 01:08:59,529 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:09:00,061 - websockets.server - INFO - connection open
+2025-03-23 01:09:00,061 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:09:00,564 - websockets.server - INFO - connection open
+2025-03-23 01:09:00,565 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:09:01,083 - websockets.server - INFO - connection open
+2025-03-23 01:09:01,083 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:09:01,595 - websockets.server - INFO - connection open
+2025-03-23 01:09:01,596 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:09:02,112 - websockets.server - INFO - connection open
+2025-03-23 01:09:02,112 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:09:02,618 - websockets.server - INFO - connection open
+2025-03-23 01:09:02,619 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:09:03,151 - websockets.server - INFO - connection open
+2025-03-23 01:09:03,151 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:09:03,655 - websockets.server - INFO - connection open
+2025-03-23 01:09:03,655 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:09:04,180 - websockets.server - INFO - connection open
+2025-03-23 01:09:04,180 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:09:04,685 - websockets.server - INFO - connection open
+2025-03-23 01:09:04,686 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:09:05,223 - websockets.server - INFO - connection open
+2025-03-23 01:09:05,223 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:09:05,720 - websockets.server - INFO - connection open
+2025-03-23 01:09:05,720 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:09:06,262 - websockets.server - INFO - connection open
+2025-03-23 01:09:06,262 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+TypeError: handle_connection() missing 1 required positional argument: 'path'
+2025-03-23 01:16:28,619 - face_verification - INFO - Server shutdown requested
+2025-03-23 01:16:34,902 - face_verification - INFO - Running periodic cleanup
+2025-03-23 01:16:34,906 - websockets.server - INFO - server listening on [::1]:8888
+2025-03-23 01:16:34,906 - websockets.server - INFO - server listening on 127.0.0.1:8888
+2025-03-23 01:16:34,906 - face_verification - INFO - WebSocket server started on ws://localhost:8888
+2025-03-23 01:17:01,107 - websockets.server - INFO - connection open
+2025-03-23 01:17:01,108 - face_verification - INFO - New connection from ::1
+2025-03-23 01:17:01,633 - websockets.server - INFO - connection open
+2025-03-23 01:17:01,634 - face_verification - INFO - New connection from ::1
+2025-03-23 01:17:02,143 - websockets.server - INFO - connection open
+2025-03-23 01:17:02,143 - face_verification - INFO - New connection from ::1
+2025-03-23 01:17:02,663 - websockets.server - INFO - connection open
+2025-03-23 01:17:02,663 - face_verification - INFO - New connection from ::1
+2025-03-23 01:17:03,177 - websockets.server - INFO - connection open
+2025-03-23 01:17:03,177 - face_verification - INFO - New connection from ::1
+2025-03-23 01:17:03,693 - websockets.server - INFO - connection open
+2025-03-23 01:17:03,693 - face_verification - INFO - New connection from ::1
+2025-03-23 01:17:04,203 - websockets.server - INFO - connection open
+2025-03-23 01:17:04,204 - face_verification - INFO - New connection from ::1
+2025-03-23 01:17:04,726 - websockets.server - INFO - connection open
+2025-03-23 01:17:04,726 - face_verification - INFO - New connection from ::1
+2025-03-23 01:17:05,235 - websockets.server - INFO - connection open
+2025-03-23 01:17:05,235 - face_verification - INFO - New connection from ::1
+2025-03-23 01:17:05,752 - websockets.server - INFO - connection open
+2025-03-23 01:17:05,752 - face_verification - INFO - New connection from ::1
+2025-03-23 01:17:06,283 - websockets.server - INFO - connection open
+2025-03-23 01:17:06,284 - face_verification - INFO - New connection from ::1
+2025-03-23 01:17:06,790 - websockets.server - INFO - connection open
+2025-03-23 01:17:06,791 - face_verification - INFO - New connection from ::1
+2025-03-23 01:17:07,307 - websockets.server - INFO - connection open
+2025-03-23 01:17:07,307 - face_verification - INFO - New connection from ::1
+2025-03-23 01:17:07,830 - websockets.server - INFO - connection open
+2025-03-23 01:17:07,830 - face_verification - INFO - New connection from ::1
+2025-03-23 01:20:47,941 - face_verification - INFO - Server shutdown requested
+2025-03-23 01:20:50,300 - face_verification - INFO - Running periodic cleanup
+2025-03-23 01:20:50,305 - websockets.server - INFO - server listening on 127.0.0.1:8888
+2025-03-23 01:20:50,305 - websockets.server - INFO - server listening on [::1]:8888
+2025-03-23 01:20:50,305 - face_verification - INFO - WebSocket server started on ws://localhost:8888
+2025-03-23 01:20:50,305 - face_verification - INFO - Using ping interval: 30s, ping timeout: 20s
+2025-03-23 01:21:18,744 - websockets.server - INFO - connection open
+2025-03-23 01:21:18,746 - face_verification - INFO - New connection 6013746960 from ::1
+2025-03-23 01:21:18,746 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:18,944 - face_verification - INFO - Connection 6013746960 removed from active connections. Remaining: 0
+2025-03-23 01:21:19,157 - websockets.server - INFO - connection open
+2025-03-23 01:21:19,157 - face_verification - INFO - New connection 6013854240 from ::1
+2025-03-23 01:21:19,157 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:19,159 - face_verification - INFO - Connection 6013854240 removed from active connections. Remaining: 0
+2025-03-23 01:21:19,364 - websockets.server - INFO - connection open
+2025-03-23 01:21:19,364 - face_verification - INFO - New connection 6013855200 from ::1
+2025-03-23 01:21:19,364 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:19,364 - face_verification - INFO - Connection 6013855200 closed for ::1: code=1006, reason='', duration=0.00s
+2025-03-23 01:21:19,364 - face_verification - INFO - Connection 6013855200 removed from active connections. Remaining: 0
+2025-03-23 01:21:19,984 - websockets.server - INFO - connection open
+2025-03-23 01:21:19,985 - face_verification - INFO - New connection 6013856112 from ::1
+2025-03-23 01:21:19,985 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:20,184 - face_verification - INFO - Connection 6013856112 removed from active connections. Remaining: 0
+2025-03-23 01:21:20,397 - websockets.server - INFO - connection open
+2025-03-23 01:21:20,398 - face_verification - INFO - New connection 6013857072 from ::1
+2025-03-23 01:21:20,398 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:20,398 - face_verification - INFO - Connection 6013857072 closed for ::1: code=1006, reason='', duration=0.00s
+2025-03-23 01:21:20,398 - face_verification - INFO - Connection 6013857072 removed from active connections. Remaining: 0
+2025-03-23 01:21:20,605 - websockets.server - INFO - connection open
+2025-03-23 01:21:20,605 - face_verification - INFO - New connection 6016835792 from ::1
+2025-03-23 01:21:20,606 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:20,607 - face_verification - INFO - Connection 6016835792 removed from active connections. Remaining: 0
+2025-03-23 01:21:21,217 - websockets.server - INFO - connection open
+2025-03-23 01:21:21,218 - face_verification - INFO - New connection 6013856928 from ::1
+2025-03-23 01:21:21,218 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:21,423 - face_verification - INFO - Connection 6013856928 removed from active connections. Remaining: 0
+2025-03-23 01:21:21,632 - websockets.server - INFO - connection open
+2025-03-23 01:21:21,632 - face_verification - INFO - New connection 6013856304 from ::1
+2025-03-23 01:21:21,632 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:21,633 - face_verification - INFO - Connection 6013856304 removed from active connections. Remaining: 0
+2025-03-23 01:21:21,836 - websockets.server - INFO - connection open
+2025-03-23 01:21:21,836 - face_verification - INFO - New connection 6013854912 from ::1
+2025-03-23 01:21:21,836 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:21,837 - face_verification - INFO - Connection 6013854912 removed from active connections. Remaining: 0
+2025-03-23 01:21:22,452 - websockets.server - INFO - connection open
+2025-03-23 01:21:22,452 - face_verification - INFO - New connection 6016835936 from ::1
+2025-03-23 01:21:22,452 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:22,661 - face_verification - INFO - Connection 6016835936 removed from active connections. Remaining: 0
+2025-03-23 01:21:22,875 - websockets.server - INFO - connection open
+2025-03-23 01:21:22,875 - face_verification - INFO - New connection 6016836944 from ::1
+2025-03-23 01:21:22,875 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:22,876 - face_verification - INFO - Connection 6016836944 closed for ::1: code=1006, reason='', duration=0.00s
+2025-03-23 01:21:22,876 - face_verification - INFO - Connection 6016836944 removed from active connections. Remaining: 0
+2025-03-23 01:21:23,082 - websockets.server - INFO - connection open
+2025-03-23 01:21:23,082 - face_verification - INFO - New connection 6016837808 from ::1
+2025-03-23 01:21:23,082 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:23,084 - face_verification - INFO - Connection 6016837808 removed from active connections. Remaining: 0
+2025-03-23 01:21:23,678 - websockets.server - INFO - connection open
+2025-03-23 01:21:23,679 - face_verification - INFO - New connection 6016838720 from ::1
+2025-03-23 01:21:23,679 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:23,794 - face_verification - INFO - Connection 6016838720 removed from active connections. Remaining: 0
+2025-03-23 01:21:24,004 - websockets.server - INFO - connection open
+2025-03-23 01:21:24,005 - face_verification - INFO - New connection 6016888944 from ::1
+2025-03-23 01:21:24,005 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:24,006 - face_verification - INFO - Connection 6016888944 removed from active connections. Remaining: 0
+2025-03-23 01:21:24,214 - websockets.server - INFO - connection open
+2025-03-23 01:21:24,214 - face_verification - INFO - New connection 6016889856 from ::1
+2025-03-23 01:21:24,214 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:24,214 - face_verification - INFO - Connection 6016889856 closed for ::1: code=1006, reason='', duration=0.00s
+2025-03-23 01:21:24,214 - face_verification - INFO - Connection 6016889856 removed from active connections. Remaining: 0
+2025-03-23 01:21:24,421 - websockets.server - INFO - connection open
+2025-03-23 01:21:24,421 - face_verification - INFO - New connection 6016890768 from ::1
+2025-03-23 01:21:24,422 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:24,423 - face_verification - INFO - Connection 6016890768 removed from active connections. Remaining: 0
+2025-03-23 01:21:24,622 - websockets.server - INFO - connection open
+2025-03-23 01:21:24,623 - face_verification - INFO - New connection 6016838384 from ::1
+2025-03-23 01:21:24,623 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:24,624 - face_verification - INFO - Connection 6016838384 removed from active connections. Remaining: 0
+2025-03-23 01:21:24,812 - websockets.server - INFO - connection open
+2025-03-23 01:21:24,812 - face_verification - INFO - New connection 6016837808 from ::1
+2025-03-23 01:21:24,812 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:24,826 - face_verification - INFO - Connection 6016837808 removed from active connections. Remaining: 0
+2025-03-23 01:21:25,041 - websockets.server - INFO - connection open
+2025-03-23 01:21:25,041 - face_verification - INFO - New connection 6016837184 from ::1
+2025-03-23 01:21:25,041 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:25,054 - face_verification - INFO - Connection 6016837184 removed from active connections. Remaining: 0
+2025-03-23 01:21:25,239 - websockets.server - INFO - connection open
+2025-03-23 01:21:25,239 - face_verification - INFO - New connection 6016836368 from ::1
+2025-03-23 01:21:25,239 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:25,240 - face_verification - INFO - Connection 6016836368 removed from active connections. Remaining: 0
+2025-03-23 01:21:25,857 - websockets.server - INFO - connection open
+2025-03-23 01:21:25,857 - face_verification - INFO - New connection 6013854720 from ::1
+2025-03-23 01:21:25,857 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:26,066 - face_verification - INFO - Connection 6013854720 removed from active connections. Remaining: 0
+2025-03-23 01:21:26,280 - websockets.server - INFO - connection open
+2025-03-23 01:21:26,281 - face_verification - INFO - New connection 6013855632 from ::1
+2025-03-23 01:21:26,281 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:26,286 - face_verification - INFO - Connection 6013855632 removed from active connections. Remaining: 0
+2025-03-23 01:21:26,485 - websockets.server - INFO - connection open
+2025-03-23 01:21:26,485 - face_verification - INFO - New connection 6013856400 from ::1
+2025-03-23 01:21:26,486 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:26,487 - face_verification - INFO - Connection 6013856400 removed from active connections. Remaining: 0
+2025-03-23 01:21:27,097 - websockets.server - INFO - connection open
+2025-03-23 01:21:27,097 - face_verification - INFO - New connection 6016891104 from ::1
+2025-03-23 01:21:27,098 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:27,205 - face_verification - INFO - Connection 6016891104 removed from active connections. Remaining: 0
+2025-03-23 01:21:27,417 - websockets.server - INFO - connection open
+2025-03-23 01:21:27,418 - face_verification - INFO - New connection 6016888944 from ::1
+2025-03-23 01:21:27,418 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:27,421 - face_verification - INFO - Connection 6016888944 removed from active connections. Remaining: 0
+2025-03-23 01:21:27,628 - websockets.server - INFO - connection open
+2025-03-23 01:21:27,629 - face_verification - INFO - New connection 6016891872 from ::1
+2025-03-23 01:21:27,629 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:27,629 - face_verification - INFO - Connection 6016891872 closed for ::1: code=1006, reason='', duration=0.00s
+2025-03-23 01:21:27,630 - face_verification - INFO - Connection 6016891872 removed from active connections. Remaining: 0
+2025-03-23 01:21:28,244 - websockets.server - INFO - connection open
+2025-03-23 01:21:28,245 - face_verification - INFO - New connection 6016892784 from ::1
+2025-03-23 01:21:28,245 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:28,442 - face_verification - INFO - Connection 6016892784 removed from active connections. Remaining: 0
+2025-03-23 01:21:28,651 - websockets.server - INFO - connection open
+2025-03-23 01:21:28,651 - face_verification - INFO - New connection 6016892544 from ::1
+2025-03-23 01:21:28,652 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:28,652 - face_verification - INFO - Connection 6016892544 removed from active connections. Remaining: 0
+2025-03-23 01:21:28,861 - websockets.server - ERROR - opening handshake failed
+Traceback (most recent call last):
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/server.py", line 142, in handshake
+    async with self.send_context(expected_state=CONNECTING):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/Users/krishna/Library/Python/3.9/lib/python/site-packages/websockets/asyncio/connection.py", line 957, in send_context
+    raise self.protocol.close_exc from original_exc
+websockets.exceptions.ConnectionClosedError: no close frame received or sent
+2025-03-23 01:21:29,069 - websockets.server - INFO - connection open
+2025-03-23 01:21:29,069 - face_verification - INFO - New connection 6016890384 from ::1
+2025-03-23 01:21:29,070 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:29,071 - face_verification - INFO - Connection 6016890384 removed from active connections. Remaining: 0
+2025-03-23 01:21:29,281 - websockets.server - INFO - connection open
+2025-03-23 01:21:29,281 - face_verification - INFO - New connection 6013857264 from ::1
+2025-03-23 01:21:29,281 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:29,289 - face_verification - INFO - Connection 6013857264 removed from active connections. Remaining: 0
+2025-03-23 01:21:29,468 - websockets.server - INFO - connection open
+2025-03-23 01:21:29,468 - face_verification - INFO - New connection 6013855488 from ::1
+2025-03-23 01:21:29,468 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:29,483 - face_verification - INFO - Connection 6013855488 removed from active connections. Remaining: 0
+2025-03-23 01:21:29,693 - websockets.server - INFO - connection open
+2025-03-23 01:21:29,693 - face_verification - INFO - New connection 6013854432 from ::1
+2025-03-23 01:21:29,693 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:29,704 - face_verification - INFO - Connection 6013854432 removed from active connections. Remaining: 0
+2025-03-23 01:21:29,893 - websockets.server - INFO - connection open
+2025-03-23 01:21:29,893 - face_verification - INFO - New connection 6016836080 from ::1
+2025-03-23 01:21:29,894 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:29,895 - face_verification - INFO - Connection 6016836080 removed from active connections. Remaining: 0
+2025-03-23 01:21:30,510 - websockets.server - INFO - connection open
+2025-03-23 01:21:30,510 - face_verification - INFO - New connection 6016836560 from ::1
+2025-03-23 01:21:30,510 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:30,715 - face_verification - INFO - Connection 6016836560 removed from active connections. Remaining: 0
+2025-03-23 01:21:30,924 - websockets.server - INFO - connection open
+2025-03-23 01:21:30,925 - face_verification - INFO - New connection 6016836320 from ::1
+2025-03-23 01:21:30,925 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:30,938 - face_verification - INFO - Connection 6016836320 removed from active connections. Remaining: 0
+2025-03-23 01:21:31,132 - websockets.server - INFO - connection open
+2025-03-23 01:21:31,132 - face_verification - INFO - New connection 6016839440 from ::1
+2025-03-23 01:21:31,133 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:31,138 - face_verification - INFO - Connection 6016839440 removed from active connections. Remaining: 0
+2025-03-23 01:21:31,746 - websockets.server - INFO - connection open
+2025-03-23 01:21:31,747 - face_verification - INFO - New connection 6016963392 from ::1
+2025-03-23 01:21:31,747 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:31,952 - face_verification - INFO - Connection 6016963392 removed from active connections. Remaining: 0
+2025-03-23 01:21:32,158 - websockets.server - INFO - connection open
+2025-03-23 01:21:32,158 - face_verification - INFO - New connection 6016890432 from ::1
+2025-03-23 01:21:32,158 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:32,161 - face_verification - INFO - Connection 6016890432 removed from active connections. Remaining: 0
+2025-03-23 01:21:32,368 - websockets.server - INFO - connection open
+2025-03-23 01:21:32,369 - face_verification - INFO - New connection 6016889232 from ::1
+2025-03-23 01:21:32,369 - face_verification - INFO - Active connections: 1
+2025-03-23 01:21:32,370 - face_verification - INFO - Connection 6016889232 removed from active connections. Remaining: 0
+2025-03-23 01:22:02,917 - face_verification - INFO - Server shutdown requested
+2025-03-23 01:22:19,786 - face_verification - INFO - Running periodic cleanup
+2025-03-23 01:22:19,789 - websockets.server - INFO - server listening on 127.0.0.1:8888
+2025-03-23 01:22:19,789 - websockets.server - INFO - server listening on [::1]:8888
+2025-03-23 01:22:19,789 - face_verification - INFO - WebSocket server started on ws://localhost:8888
+2025-03-23 01:22:19,789 - face_verification - INFO - Using ping interval: 30s, ping timeout: 20s
+2025-03-23 01:22:46,832 - websockets.server - INFO - connection open
+2025-03-23 01:22:46,833 - face_verification - INFO - New connection 5324243248 from ::1
+2025-03-23 01:22:46,833 - face_verification - INFO - Active connections: 1
+2025-03-23 01:22:46,945 - face_verification - INFO - Connection 5324243248 removed from active connections. Remaining: 0
+2025-03-23 01:22:47,156 - websockets.server - INFO - connection open
+2025-03-23 01:22:47,156 - face_verification - INFO - New connection 5324243728 from ::1
+2025-03-23 01:22:47,157 - face_verification - INFO - Active connections: 1
+2025-03-23 01:22:47,157 - face_verification - INFO - Connection 5324243728 closed for ::1: code=1006, reason='', duration=0.00s
+2025-03-23 01:22:47,157 - face_verification - INFO - Connection 5324243728 removed from active connections. Remaining: 0
+2025-03-23 01:22:47,364 - websockets.server - INFO - connection open
+2025-03-23 01:22:47,364 - face_verification - INFO - New connection 5330477504 from ::1
+2025-03-23 01:22:47,364 - face_verification - INFO - Active connections: 1
+2025-03-23 01:22:47,365 - face_verification - INFO - Connection 5330477504 closed for ::1: code=1006, reason='', duration=0.00s
+2025-03-23 01:22:47,365 - face_verification - INFO - Connection 5330477504 removed from active connections. Remaining: 0
+2025-03-23 01:22:47,991 - websockets.server - INFO - connection open
+2025-03-23 01:22:47,991 - face_verification - INFO - New connection 5330478368 from ::1
+2025-03-23 01:22:47,991 - face_verification - INFO - Active connections: 1
+2025-03-23 01:22:48,186 - face_verification - INFO - Connection 5330478368 removed from active connections. Remaining: 0
+2025-03-23 01:22:48,396 - websockets.server - INFO - connection open
+2025-03-23 01:22:48,397 - face_verification - INFO - New connection 5330479328 from ::1
+2025-03-23 01:22:48,397 - face_verification - INFO - Active connections: 1
+2025-03-23 01:22:48,397 - face_verification - INFO - Connection 5330479328 removed from active connections. Remaining: 0
+2025-03-23 01:22:48,602 - websockets.server - INFO - connection open
+2025-03-23 01:22:48,602 - face_verification - INFO - New connection 5330480288 from ::1
+2025-03-23 01:22:48,603 - face_verification - INFO - Active connections: 1
+2025-03-23 01:22:48,604 - face_verification - INFO - Connection 5330480288 removed from active connections. Remaining: 0
+2025-03-23 01:22:49,217 - websockets.server - INFO - connection open
+2025-03-23 01:22:49,217 - face_verification - INFO - New connection 5330480480 from ::1
+2025-03-23 01:22:49,218 - face_verification - INFO - Active connections: 1
+2025-03-23 01:22:49,415 - face_verification - INFO - Connection 5330480480 removed from active connections. Remaining: 0
+2025-03-23 01:22:54,699 - face_verification - INFO - Server shutdown requested
+2025-03-23 01:23:31,526 - face_verification - INFO - Running periodic cleanup
+2025-03-23 01:23:31,530 - websockets.server - INFO - server listening on 127.0.0.1:8888
+2025-03-23 01:23:31,530 - websockets.server - INFO - server listening on [::1]:8888
+2025-03-23 01:23:31,530 - face_verification - INFO - WebSocket server started on ws://localhost:8888
+2025-03-23 01:23:31,530 - face_verification - INFO - Using ping interval: 30s, ping timeout: 20s
+2025-03-23 01:23:59,280 - websockets.server - INFO - connection open
+2025-03-23 01:23:59,280 - face_verification - INFO - New connection 5998719952 from ::1
+2025-03-23 01:23:59,280 - face_verification - INFO - Active connections: 1
+2025-03-23 01:23:59,405 - face_verification - INFO - Connection 5998719952 removed from active connections. Remaining: 0
+2025-03-23 01:23:59,611 - websockets.server - INFO - connection open
+2025-03-23 01:23:59,611 - face_verification - INFO - New connection 6000500992 from ::1
+2025-03-23 01:23:59,611 - face_verification - INFO - Active connections: 1
+2025-03-23 01:23:59,612 - face_verification - INFO - Connection 6000500992 closed for ::1: code=1006, reason='', duration=0.00s
+2025-03-23 01:23:59,612 - face_verification - INFO - Connection 6000500992 removed from active connections. Remaining: 0
+2025-03-23 01:23:59,813 - websockets.server - INFO - connection open
+2025-03-23 01:23:59,813 - face_verification - INFO - New connection 6000501856 from ::1
+2025-03-23 01:23:59,814 - face_verification - INFO - Active connections: 1
+2025-03-23 01:23:59,814 - face_verification - INFO - Connection 6000501856 closed for ::1: code=1006, reason='', duration=0.00s
+2025-03-23 01:23:59,814 - face_verification - INFO - Connection 6000501856 removed from active connections. Remaining: 0
+2025-03-23 01:24:00,435 - websockets.server - INFO - connection open
+2025-03-23 01:24:00,435 - face_verification - INFO - New connection 6000502720 from ::1
+2025-03-23 01:24:00,435 - face_verification - INFO - Active connections: 1
+2025-03-23 01:24:00,630 - face_verification - INFO - Connection 6000502720 removed from active connections. Remaining: 0
+2025-03-23 01:24:00,843 - websockets.server - INFO - connection open
+2025-03-23 01:24:00,843 - face_verification - INFO - New connection 6000503680 from ::1
+2025-03-23 01:24:00,843 - face_verification - INFO - Active connections: 1
+2025-03-23 01:24:00,844 - face_verification - INFO - Connection 6000503680 closed for ::1: code=1006, reason='', duration=0.00s
+2025-03-23 01:24:00,844 - face_verification - INFO - Connection 6000503680 removed from active connections. Remaining: 0
+2025-03-23 01:24:01,056 - websockets.server - INFO - connection open
+2025-03-23 01:24:01,056 - face_verification - INFO - New connection 6000504544 from ::1
+2025-03-23 01:24:01,056 - face_verification - INFO - Active connections: 1
+2025-03-23 01:24:01,058 - face_verification - INFO - Connection 6000504544 closed for ::1: code=1006, reason='', duration=0.00s
+2025-03-23 01:24:01,058 - face_verification - INFO - Connection 6000504544 removed from active connections. Remaining: 0
+2025-03-23 01:24:01,667 - websockets.server - INFO - connection open
+2025-03-23 01:24:01,667 - face_verification - INFO - New connection 6000503776 from ::1
+2025-03-23 01:24:01,667 - face_verification - INFO - Active connections: 1
+2025-03-23 01:24:01,875 - face_verification - INFO - Connection 6000503776 removed from active connections. Remaining: 0
+2025-03-23 01:24:02,080 - websockets.server - INFO - connection open
+2025-03-23 01:24:02,081 - face_verification - INFO - New connection 6000502672 from ::1
+2025-03-23 01:24:02,081 - face_verification - INFO - Active connections: 1
+2025-03-23 01:24:02,082 - face_verification - INFO - Connection 6000502672 removed from active connections. Remaining: 0
+2025-03-23 01:24:02,283 - websockets.server - INFO - connection open
+2025-03-23 01:24:02,283 - face_verification - INFO - New connection 6000501664 from ::1
+2025-03-23 01:24:02,283 - face_verification - INFO - Active connections: 1
+2025-03-23 01:24:02,285 - face_verification - INFO - Connection 6000501664 removed from active connections. Remaining: 0
+2025-03-23 01:24:02,890 - websockets.server - INFO - connection open
+2025-03-23 01:24:02,890 - face_verification - INFO - New connection 5998720048 from ::1
+2025-03-23 01:24:02,890 - face_verification - INFO - Active connections: 1
+2025-03-23 01:24:03,001 - face_verification - INFO - Connection 5998720048 removed from active connections. Remaining: 0
+2025-03-23 01:24:03,213 - websockets.server - INFO - connection open
+2025-03-23 01:24:03,213 - face_verification - INFO - New connection 6000591824 from ::1
+2025-03-23 01:24:03,213 - face_verification - INFO - Active connections: 1
+2025-03-23 01:24:03,214 - face_verification - INFO - Connection 6000591824 closed for ::1: code=1006, reason='', duration=0.00s
+2025-03-23 01:24:03,214 - face_verification - INFO - Connection 6000591824 removed from active connections. Remaining: 0
+2025-03-26 10:55:50,427 - face_verification - INFO - Running periodic cleanup
+2025-03-26 10:55:50,427 - face_verification - INFO - Deleted old image: images/6122382592.jpeg
+2025-03-26 10:55:50,427 - face_verification - INFO - Deleted old image: images/663486295.jpeg
+2025-03-26 10:55:50,427 - face_verification - INFO - Deleted old image: images/6425182898.jpeg
+2025-03-26 10:55:50,437 - websockets.server - INFO - server listening on [::1]:8888
+2025-03-26 10:55:50,438 - websockets.server - INFO - server listening on 127.0.0.1:8888
+2025-03-26 10:55:50,438 - face_verification - INFO - WebSocket server started on ws://localhost:8888
+2025-03-26 10:55:50,438 - face_verification - INFO - Using ping interval: 30s, ping timeout: 20s

@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "@firebasegen/default-connector": "file:dataconnect-generated/js/default-connector",
+    "@google-cloud/vision": "^5.1.0",
+    "axios": "^1.8.4",
+    "firebase": "^11.4.0",
+    "ws": "^8.18.1"
+  },
+  "name": "votingmadeeasier",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
