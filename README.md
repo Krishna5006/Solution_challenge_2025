@@ -32,7 +32,6 @@ We've developed a cutting-edge verification system using an IoT-enabled scanner 
   - **Red Light**: Indicates a voting restriction (e.g., already voted)
 
 ## Key Advantages
-- Simplifies voter registration for 17-18 year olds
 - Eliminates manual paperwork
 - Reduces physical verification time at polling booths
 - Prevents duplicate voting
